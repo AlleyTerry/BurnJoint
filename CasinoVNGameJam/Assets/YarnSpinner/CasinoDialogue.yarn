@@ -1,0 +1,146 @@
+﻿
+title: CasinoDialogue
+position: -166,-674
+---
+
+<<declare $DealerIntroDone = false>>
+<alpha=\#00> Player: “w-where am I?”
+<alpha=\#00> Player: You slowly open your eyes, 
+<alpha=\#00> Player: The blinding buzzing of florescent lights assaults your senses.
+<<setCharacterSprite CharacterManager Dealer2>>
+Dealer: “Welcome valued customer to the VIP Suite!”
+<alpha=\#00> Player: “w-wha-”
+Dealer:“You’re at the lovely Lotus Roots Entertainment Center and Casino! 
+Dealer: "You gambled so well (too well),"
+Dealer: "That you have landed a one way pass to our VIP Suite!”
+Dealer: “Congratulations!”
+<alpha=\#00> Player: “this seems more like an interrogation room than a VIP suite”
+<<setCharacterSprite CharacterManager Dealer1>>
+Dealer: “Well what do you expect you counting cards cheating son of a bi-"
+<<setCharacterSprite CharacterManager Dealer2>>
+Dealer: “I mean of course our valued customer just played the game SO well-"
+Dealer: "That they get to spend the rest of eternity here with me… In our VIP Room!”
+<alpha=\#00> Player: "Rigggghhhhtttt."
+<alpha=\#00> Player: You need to get out of here.
+<<hideCharacterSprite CharacterManager>>
+<<OnDialogueEnd InputHandler>>
+
+
+===
+title: Options1
+color: red
+position: -175,-495
+---
+<<hideCharacterSprite CharacterManager>>
+-> click on DoorLock
+    <<jump DoorLock>>
+-> Click on the WindowLock
+    <<jump WindowLock>>
+-> click on Dealer
+    <<jump DealerIntro>>
+-> look around
+    <<OnDialogueEnd InputHandler>>
+===
+
+
+
+title:DealerIntro
+position: -520,-246
+---
+<<if $DealerIntroDone == false>>
+    <alpha=\#00> Player: “Wait I remember now, you were my dealer! I was playing blackjack and then-” 
+    <<setCharacterSprite CharacterManager Dealer1>>
+    Dealer: “Listen, any time someone does "too well“ at our casino, they get put in here,"
+    Dealer: "with me,"
+    <<setCharacterSprite CharacterManager Dealer2>>
+    Dealer: "IN OUR LOVELY VIP SUITE." 
+    Dealer: "If you wanna leave you’re gonna have to PLAY THE GAME RIGHT."
+    <<set $DealerIntroDone = true>>
+    <<jump DealerOptions>>
+<<else>>
+    <<jump DealerOptions>>
+<<endif>>
+===
+
+title:DealerOptions
+position: -554,-20
+---
+-> ask Dealer about Window.
+    <<setCharacterSprite CharacterManager Dealer2>>
+    Dealer: “It’s beautiful outside isn’t it." 
+    Dealer: "At least that’s the silver lining of being in here."
+    Dealer: "You actually get to see the sun for once."
+    Dealer: "Even if it’s from a barred window.”
+    <alpha=\#00> Player: "Do you end up in here often?"
+    <<setCharacterSprite CharacterManager Dealer1>>
+    Dealer: “Hmph that’s classified information Valued Customer”
+    <<jump DealerOptions>>
+-> ask dealer about cards
+    <<setCharacterSprite CharacterManager Dealer2>>
+    Dealer: “Here is the order."
+    Dealer: "Be prepared."
+    Dealer: "Though im sure our Valued Customer can figure it out.”
+    <alpha=\#00> Player: "Wow cryptic much?"
+    <<setCharacterSprite CharacterManager Dealer1>>
+    Dealer: "Look do you want the damn hint or not?""
+    <alpha=\#00> Player: "Fair point."
+    <alpha=\#00> Player: "Carry on."
+    <<setCharacterSprite CharacterManager Dealer2>>
+    Dealer: Hearts
+    Dealer: Spades
+    Dealer: Clubs
+    Dealer: Diamonds
+    <<jump DealerOptions>>
+-> look around
+    <<hideCharacterSprite CharacterManager>>
+    <<OnDialogueEnd InputHandler>>
+===
+
+title: Wait
+position: 504,47
+---
+<alpha=\#00> Player: You look back at the dealer.
+<alpha=\#00> Player: The grin they wear almost looks painful. 
+<alpha=\#00> Player: Maybe there’s a way to get them out too?
+<alpha=\#00> Player: After all this door just leads back to the casino anyway.
+<alpha=\#00> Player: And you're done gambling.
+<<OnDialogueEnd InputHandler>>
+===
+title: BadEnd
+position: 183,20
+---
+<alpha=\#00> Player: You decide to leave.
+<alpha=\#00> Player: After all
+<alpha=\#00> Player: THERE'S MORE GAMBLING TO DO!
+<<setCharacterSprite CharacterManager Dealer2>>
+Dealer:“Please Valued Customer."
+Dealer: "Do me a favor,"
+<<setCharacterSprite CharacterManager Dealer1>>
+Dealer: "And never come here again.”
+<<hideCharacterSprite CharacterManager>>
+<alpha=\#00> Player: You often remember the strained look on the dealers face.
+<alpha=\#00> Player: The fake smiles and pained eyes. 
+<alpha=\#00> Player: You never did leave the casino.
+<alpha=\#00> Player: Trapped in an endless cycle of winning big but losing bigger.
+<alpha=\#00> Player: After some time you forget the dealer ever existed.
+ <alpha=\#00> Player: Replaced by a new, shiny one.
+<alpha=\#00> Player: Allowing your memories to fade.
+<alpha=\#00> Player: Never wondering if there was anything you could have done to help...
+<alpha=\#00> Player: BAD END
+===
+title: GoodEnd
+position: -79,-25
+---
+<alpha=\#00> Player: With a loud CLICK from the lock, it opens.
+<alpha=\#00> Player: And with it go the Bars of the window and the chains.
+<alpha=\#00> Player: With help from the dealer he hoists you up and through the window.
+<alpha=\#00> Player: You turn around and grab him to help him out.
+<alpha=\#00> Player: Sirens start to wail but it’s too late, you two are too far gone. 
+<alpha=\#00> Player: Finally able to feel the sun and fresh air on your face.
+<alpha=\#00> Player: How long has it been since you had seen the sun? There are no windows in the casino.
+<alpha=\#00> Player: You aren’t sure and right now you don’t care.
+<alpha=\#00> Player: The dealer looks at you with a smile,
+<alpha=\#00> Player: At least what you think is a smile. 
+<alpha=\#00> Player: And it’s all that matters.
+GOOD END
+===

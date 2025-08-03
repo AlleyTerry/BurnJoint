@@ -1,0 +1,94 @@
+﻿title:DoorLock
+position: 196,-216
+color: red
+---
+<<ChangeObject DoorLock>>
+<alpha=\#00> Player: It’s a lock that has the input of 4 numbers,
+<alpha=\#00> Player: Weirdly enough, the last one is upside down.
+<alpha=\#00> Player: Enter combination?
+-> yes.
+    <alpha=\#00> Player: Use numpad to enter 4 numbers.
+    <<StartLockMinigame DoorLock>>
+-> no.
+    <<jump Wait>>
+===
+title:WindowLock
+position: -175,-870
+---
+<<ChangeObject WindowLock>>
+<alpha=\#00> Player: It’s a lock that has the input of 4 numbers, 
+<alpha=\#00> Player: Weirdly enough, the first one is upside down.
+<alpha=\#00> Player: Enter combination?
+-> yes.
+    <alpha=\#00> Player: Use numpad to enter 4 numbers.
+    <<StartLockMinigame WindowLock>>
+-> no.
+    I should look around more.
+    <<OnDialogueEnd InputHandler>>
+===
+title:Card4
+position: -98,-402
+---
+<alpha=\#00> Player: It's a card with a 4 on it.
+<alpha=\#00> Player: There's tape over the middle.
+<alpha=\#00> Player: You peel it off and reveal.
+<alpha=\#00> Player: A heart.
+<<OnDialogueEnd InputHandler>>
+===
+title:Card3
+position: -98,-402
+---
+<alpha=\#00> Player: It's a card with a 3 on it.
+<alpha=\#00> Player: There's tape over the middle.
+<alpha=\#00> Player: You peel it off and reveal.
+<alpha=\#00> Player: A spade.
+<<OnDialogueEnd InputHandler>>
+===
+title:Card7
+position: -98,-402
+---
+<alpha=\#00> Player: It's a card with a 4 on it.
+<alpha=\#00> Player: There's tape over the middle.
+<alpha=\#00> Player: You peel it off and reveal.
+<alpha=\#00> Player: A club.
+<<OnDialogueEnd InputHandler>>
+===
+title:Card9
+position: -98,-402
+---
+<alpha=\#00> Player: It's a card with a 4 on it.
+<alpha=\#00> Player: There's tape over the middle.
+<alpha=\#00> Player: You peel it off and reveal.
+<alpha=\#00> Player: A diamond.
+<<OnDialogueEnd InputHandler>>
+===
+
+title: WrongCode
+---
+<alpha=\#00> Player: Ugh i got it wrong.
+<alpha=\#00> Player: I should look around some more.
+<alpha=\#00> Player: Maybe talk to the dealer.
+<<OnDialogueEnd InputHandler>>
+===
+title:Chains
+position: -304,-221
+---
+Player: “I- did they trap you here too? Why?”
+<<setCharacterSprite CharacterManager Dealer1>>
+Dealer: “Because "Valued Customer" your success is my success. And that means wherever you go…"
+<alpha=\#00> Player: Well that doesn’t seem fair,
+<alpha=\#00> Player: Why would he be punished for something I did?
+<alpha=\#00> Player: Maybe I can help him out of here too,
+<alpha=\#00> Player: It’s the least I can do.
+<alpha=\#00> Player: The dealer coughs and lifts his sleeve a little.
+<alpha=\#00> Player: Something catches your eye.
+<alpha=\#00> Player: A card in the dealer's sleeve.
+<alpha=\#00> Player: You take a closer look at it, it says:
+<alpha=\#00> Player: This whole palce is backwards,
+<alpha=\#00> Player: You know this to be true,
+<alpha=\#00> Player: If you are a truly kind person,
+<alpha=\#00> Player: Then you'll look for the lock with a view.
+<<hideCharacterSprite CharacterManager>>
+<<OnDialogueEnd InputHandler>>
+
+===

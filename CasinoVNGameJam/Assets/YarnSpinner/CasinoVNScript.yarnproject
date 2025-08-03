@@ -1,0 +1,15 @@
+{
+  "projectFileVersion": 3,
+  "sourceFiles": [
+    "CasinoDialogue.yarn",
+    "Objects.yarn"
+  ],
+  "excludeFiles": [
+    "**/*~/*",
+    "./Samples/Yarn Spinner*/*"
+  ],
+  "localisation": {},
+  "baseLanguage": "en",
+  "compilerOptions": {},
+  "definitionsFiles": []
+}
